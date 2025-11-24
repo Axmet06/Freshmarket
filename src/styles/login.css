@@ -102,6 +102,19 @@
   box-shadow: 0 0 0 2px rgba(255, 105, 180, 0.3), 0 0 10px rgba(255, 105, 180, 0.3);
 }
 
+.profile-value {
+  padding: 12px 15px;
+  border: 1px solid rgba(255, 105, 180, 0.3);
+  border-radius: 30px;
+  background: var(--white);
+  font-family: inherit;
+  font-size: 1rem;
+  box-shadow: 0 2px 5px rgba(255, 105, 180, 0.1);
+  transition: all 0.3s ease;
+  color: var(--dark-text);
+  font-weight: 500;
+}
+
 .auth-btn {
   width: 100%;
   padding: 15px;
@@ -140,6 +153,30 @@
 .link-btn:hover {
   color: var(--fuchsia);
   text-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
+}
+
+.success-message {
+  background: rgba(40, 167, 69, 0.2);
+  border: 1px solid rgba(40, 167, 69, 0.3);
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  color: #28a745;
+  text-align: center;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(40, 167, 69, 0.1);
+}
+
+.error-message {
+  background: rgba(220, 53, 69, 0.2);
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  color: #dc3545;
+  text-align: center;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(220, 53, 69, 0.1);
 }
 
 /* Адаптивность */

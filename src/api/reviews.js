@@ -20,25 +20,20 @@ const mockReviews = [
   }
 ];
 
+// Import Supabase client
+import { supabase } from '../supabaseClient';
+
 // Check if Supabase is configured
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-let supabase;
-
-// Only initialize Supabase if credentials are available
-if (supabaseUrl && supabaseAnonKey) {
-  try {
-    const { createClient } = await import('@supabase/supabase-js');
-    supabase = createClient(supabaseUrl, supabaseAnonKey);
-  } catch (error) {
-    console.warn('Supabase client could not be initialized:', error);
-  }
-}
+const isSupabaseConfigured = supabaseUrl && supabaseAnonKey && 
+  supabaseUrl !== 'https://your-project.supabase.co' && 
+  supabaseAnonKey !== 'your-anon-key-here';
 
 // Get reviews for a product
 export const getReviews = async (productId) => {
   // If Supabase is not available, return mock data for product ID 1
-  if (!supabase) {
+  if (!isSupabaseConfigured) {
     console.warn('Supabase not configured, returning mock data');
     return productId === "1" ? mockReviews : [];
   }
@@ -62,7 +57,7 @@ export const getReviews = async (productId) => {
 // Add a new review
 export const addReview = async (productId, username, rating, comment, userId) => {
   // If Supabase is not available, simulate adding to mock data
-  if (!supabase) {
+  if (!isSupabaseConfigured) {
     console.warn('Supabase not configured, simulating review addition');
     const newReview = {
       id: Date.now(), // Simple ID generation
@@ -104,7 +99,7 @@ export const addReview = async (productId, username, rating, comment, userId) =>
 // Delete a review
 export const deleteReview = async (reviewId) => {
   // If Supabase is not available, simulate deletion
-  if (!supabase) {
+  if (!isSupabaseConfigured) {
     console.warn('Supabase not configured, simulating review deletion');
     // In a real app, you would update the mock data store
     return true;

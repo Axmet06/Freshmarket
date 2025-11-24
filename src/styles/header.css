@@ -61,6 +61,25 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
+.logout-btn {
+  background: none;
+  border: none;
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
 .cart-btn {
   background: var(--white);
   color: var(--fuchsia);
