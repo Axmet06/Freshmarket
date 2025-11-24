@@ -1,0 +1,83 @@
+import React from 'react';
+import '../styles/accessories.css';
+
+const Accessories = () => {
+  const accessories = [
+    {
+      id: 1,
+      name: 'Тестер Light Blue',
+      brand: 'Dolce & Gabbana',
+      image: 'https://images.unsplash.com/photo-1585155770447-2f66e2a397b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+      price: 45,
+      description: 'Тестер полноразмерного флакона'
+    },
+    {
+      id: 2,
+      name: 'Дорожный атомайзер',
+      brand: 'Unbranded',
+      image: 'https://images.unsplash.com/photo-1604186264148-9e761d719580?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+      price: 35,
+      description: 'Для путешествий 100 мл'
+    },
+    {
+      id: 3,
+      name: 'Подарочная упаковка',
+      brand: 'Luxury Pack',
+      image: 'https://images.unsplash.com/photo-1591353842971-9ac335aabfab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+      price: 25,
+      description: 'Элегантная коробка с лентой'
+    },
+    {
+      id: 4,
+      name: 'Мини-набор Chanel',
+      brand: 'Chanel',
+      image: 'https://images.unsplash.com/photo-1585155770447-2f66e2a397b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+      price: 89,
+      description: '3x10 мл миниатюры'
+    },
+    {
+      id: 5,
+      name: 'Атомайзер розовое золото',
+      brand: 'Premium',
+      image: 'https://images.unsplash.com/photo-1604186264148-9e761d719580?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+      price: 65,
+      description: 'Металлический 50 мл'
+    },
+    {
+      id: 6,
+      name: 'Подарочный пакет',
+      brand: 'Store Exclusive',
+      image: 'https://images.unsplash.com/photo-1591353842971-9ac335aabfab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+      price: 15,
+      description: 'С логотипом магазина'
+    }
+  ];
+
+  return (
+    <div className="accessories-section">
+      <div className="container">
+        <h2 className="section-title">Аксессуары</h2>
+        <div className="products-grid grid">
+          {accessories.map(accessory => (
+            <div key={accessory.id} className="product-card glass fade-in">
+              <div className="product-image">
+                <img src={accessory.image} alt={accessory.name} />
+              </div>
+              <div className="product-info">
+                <h3>{accessory.name}</h3>
+                <p className="brand">{accessory.brand}</p>
+                <p className="description">{accessory.description}</p>
+                <div className="price-container">
+                  <div className="price">{accessory.price} $</div>
+                  <button className="btn btn-card">Добавить в корзину</button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Accessories;

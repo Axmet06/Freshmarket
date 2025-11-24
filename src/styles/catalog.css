@@ -1,0 +1,204 @@
+/* Catalog Page Styles */
+.catalog {
+  padding: 2rem 0;
+  background-color: #ffe6f0; /* Розовый фон */
+  min-height: calc(100vh - 200px);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #ff69b4; /* Розовый заголовок */
+  font-size: 2rem;
+  text-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+}
+
+.catalog-content {
+  display: flex;
+  gap: 2rem;
+}
+
+/* Filters sidebar */
+.filters {
+  flex: 0 0 250px;
+  background: #fff0f5; /* Светло-розовый фон карточек */
+  padding: 1.5rem;
+  border-radius: 15px; /* Закругленные углы */
+  box-shadow: 0 4px 20px rgba(255, 105, 180, 0.3);
+  color: #333333;
+  position: relative;
+  overflow: hidden;
+}
+
+.filters::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 15px;
+  pointer-events: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.filters:hover::before {
+  box-shadow: inset 0 0 20px rgba(255, 105, 180, 0.2);
+}
+
+.filters h3 {
+  margin-top: 0;
+  color: #ff69b4; /* Розовый заголовок */
+  border-bottom: 2px solid #ff69b4; /* Розовая линия */
+  padding-bottom: 0.5rem;
+}
+
+.filter-group {
+  margin-bottom: 1.5rem;
+}
+
+.filter-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #ff69b4; /* Розовые метки */
+}
+
+.filter-input,
+.filter-select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ffb6c1; /* Светло-розовая граница */
+  border-radius: 30px; /* Закругленные поля */
+  background: white;
+  color: #333333;
+  box-shadow: 0 2px 5px rgba(255, 105, 180, 0.1);
+}
+
+.filter-input:focus,
+.filter-select:focus {
+  outline: none;
+  border-color: #ff69b4; /* Розовая граница при фокусе */
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+}
+
+.price-range input {
+  width: 100%;
+}
+
+.btn-secondary {
+  background: #f8f0f6;
+  color: #ff69b4;
+  border: 1px solid #ff69b4;
+  padding: 0.5rem 1rem;
+  border-radius: 30px; /* Закругленная кнопка */
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: #f0e6ef;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 105, 180, 0.3);
+}
+
+/* Products list */
+.products-list {
+  flex: 1;
+}
+
+.products-header {
+  margin-bottom: 1rem;
+  color: #ff69b4; /* Розовый заголовок */
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 2rem;
+  color: #333333;
+}
+
+.error {
+  color: #ff69b4; /* Розовая ошибка */
+}
+
+.no-products {
+  text-align: center;
+  padding: 2rem;
+  color: #333333;
+}
+
+/* Products grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Load more button */
+.load-more-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.load-more-container .btn-primary {
+  background: linear-gradient(45deg, #ff69b4, #ff1493); /* Градиентная розовая кнопка */
+  color: #FFFFFF;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 30px; /* Закругленная кнопка */
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.load-more-container .btn-primary:hover {
+  background: linear-gradient(45deg, #ff1493, #ff69b4); /* Обратный градиент при наведении */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 105, 180, 0.5), 0 0 15px rgba(255, 105, 180, 0.3);
+}
+
+.load-more-container .btn-primary:disabled {
+  background: #e0e0e0;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Responsive grid */
+@media (min-width: 1200px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr); /* Desktop: 4 карточки в ряд */
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr); /* Планшет: 3 карточки в ряд */
+  }
+}
+
+@media (max-width: 767px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr); /* Мобильный: 2 карточки в ряд */
+  }
+  
+  .catalog-content {
+    flex-direction: column;
+  }
+  
+  .filters {
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: 1fr; /* Очень маленькие экраны: 1 карточка в ряд */
+  }
+}

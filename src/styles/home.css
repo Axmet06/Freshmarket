@@ -1,0 +1,193 @@
+/* Home Page Styles */
+.home {
+  background-color: #ffe6f0; /* Розовый фон */
+}
+
+/* Promo Banner */
+.promo-banner {
+  background: linear-gradient(rgba(255, 105, 180, 0.8), rgba(255, 20, 147, 0.8)), 
+              url('https://images.unsplash.com/photo-1585155770447-2f66e2a397b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1950&q=80');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(255, 105, 180, 0.3);
+}
+
+.promo-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #ff69b4; /* Розовые акценты */
+  text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+}
+
+.promo-content h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: white;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.promo-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Featured Sections */
+.featured-section {
+  padding: 3rem 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #ff69b4; /* Розовый заголовок */
+  font-size: 2rem;
+  text-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+}
+
+/* Products grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 3rem 0;
+  background-color: #ffb6c1; /* Светло-розовый фон */
+}
+
+.cta-content {
+  background: #fff0f5; /* Светло-розовый фон карточек */
+  padding: 2rem;
+  border-radius: 15px; /* Закругленные углы */
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(255, 105, 180, 0.3);
+  color: #333333;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 15px;
+  pointer-events: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.cta-content:hover::before {
+  box-shadow: inset 0 0 20px rgba(255, 105, 180, 0.2);
+}
+
+.cta-content h2 {
+  margin-top: 0;
+  color: #ff69b4; /* Розовый заголовок */
+  text-shadow: 0 0 5px rgba(255, 105, 180, 0.3);
+}
+
+.cta-content p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 30px; /* Закругленные кнопки */
+  font-weight: bold;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #ff69b4, #ff1493); /* Градиентная розовая кнопка */
+  color: white;
+  border: none;
+  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(45deg, #ff1493, #ff69b4); /* Обратный градиент при наведении */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 105, 180, 0.5), 0 0 15px rgba(255, 105, 180, 0.3);
+}
+
+.btn-secondary {
+  background: #f8f0f6;
+  color: #ff69b4;
+  border: 1px solid #ff69b4;
+  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.2);
+}
+
+.btn-secondary:hover {
+  background: #f0e6ef;
+  box-shadow: 0 6px 15px rgba(255, 105, 180, 0.3);
+}
+
+/* Loading and Error states */
+.loading, .error {
+  text-align: center;
+  padding: 2rem;
+  color: #333333;
+}
+
+.error {
+  color: #ff69b4; /* Розовая ошибка */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .promo-banner {
+    padding: 2rem 0;
+  }
+  
+  .promo-content h2 {
+    font-size: 2rem;
+  }
+  
+  .promo-content h3 {
+    font-size: 1.5rem;
+  }
+  
+  .promo-content p {
+    font-size: 1rem;
+  }
+  
+  .featured-section {
+    padding: 2rem 0;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-content {
+    padding: 1rem;
+  }
+}
