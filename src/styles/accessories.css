@@ -14,3 +14,299 @@
     padding: 30px 0;
   }
 }
+
+.products-flex-wrap{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+/* card.css - Стили карточки товара в зеленых тонах */
+
+/* ============================================
+   Цветовая палитра (светлая тема, зеленые тона)
+   ============================================ */
+:root {
+  /* Основные цвета */
+  --card-bg: #ffffff;
+  --text-primary: #1e3a2e;
+  --text-secondary: #4a6b5c;
+  --text-muted: #7a9788;
+  
+  /* Зеленая палитра */
+  --green-primary: #2d6a4f;
+  --green-light: #52b788;
+  --green-lighter: #95d5b2;
+  --green-pale: #d8f3dc;
+  --green-bg: #f1faee;
+  
+  /* Акценты */
+  --accent-color: #2d6a4f;
+  --border-color: #d8f3dc;
+  --rating-color: #e9c46a;
+  --rating-bg: #fef8e7;
+  --out-of-stock: #d62828;
+  
+  /* Тени */
+  --shadow-soft: 0 2px 8px rgba(45, 106, 79, 0.08);
+  
+  /* Радиусы */
+  --radius-card: 12px;
+  --radius-button: 8px;
+  
+  /* Размеры */
+  --card-height: 420px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+}
+
+/* ============================================
+   Базовые стили карточки
+   ============================================ */
+.product-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: var(--card-height);
+  min-width: 0;
+  border: 1px solid var(--border-color);
+  width: 100%;
+  max-width: 350px; 
+}
+
+.product-card:focus-within {
+  outline: 2px solid var(--green-lighter);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   Область изображения
+   ============================================ */
+.product-card .product-image {
+  position: relative;
+  flex: 0 0 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md);
+  background: var(--green-bg);
+  overflow: hidden;
+}
+
+.product-card .product-image img {
+  max-width: 75%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ============================================
+   Информация о товаре
+   ============================================ */
+.product-card .product-info {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-md);
+  gap: 8px;
+  min-height: 0;
+}
+
+/* Название товара */
+.product-card .product-info h3 {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--text-primary);
+  font-weight: 700;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 2.8em;
+}
+
+/* Бренд */
+.product-card .product-info .brand {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  margin: 0;
+  order: -1;
+}
+
+/* Описание */
+.product-card .product-info .description {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+/* ============================================
+   Контейнер цены и кнопки
+   ============================================ */
+.product-card .price-container {
+  margin-top: auto;
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* Цена */
+.product-card .price-container .price {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--accent-color);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* ============================================
+   Кнопки
+   ============================================ */
+.product-card .btn {
+  border: none;
+  padding: 11px 18px;
+  border-radius: var(--radius-button);
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  white-space: nowrap;
+  text-align: center;
+  font-family: inherit;
+  transition: background-color 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  height: auto;
+}
+
+.product-card .btn-card {
+  background: var(--green-primary);
+  color: white;
+  min-width: 110px;
+}
+
+.product-card .btn-card:active {
+  background: var(--green-light);
+}
+
+.product-card .btn-card:focus {
+  outline: 2px solid var(--green-lighter);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   Адаптивность
+   ============================================ */
+@media (max-width: 1200px) {
+  :root {
+    --card-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --card-height: 380px;
+  }
+  
+  .product-card .product-image {
+    flex: 0 0 46%;
+    padding: 14px;
+  }
+  
+  .product-card .product-image img {
+    max-width: 70%;
+  }
+  
+  .product-card .product-info h3 {
+    font-size: 0.95rem;
+  }
+  
+  .product-card .product-info .description {
+    font-size: 0.8rem;
+  }
+  
+  .product-card .price-container .price {
+    font-size: 1.3rem;
+  }
+  
+  .product-card .btn-card {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --card-height: 360px;
+  }
+  
+  .product-card .product-image {
+    flex: 0 0 44%;
+    padding: 12px;
+  }
+  
+  .product-card .product-info {
+    padding: 12px;
+  }
+  
+  .product-card .product-info h3 {
+    font-size: 0.9rem;
+  }
+  
+  .product-card .product-info .description {
+    font-size: 0.75rem;
+    -webkit-line-clamp: 1;
+  }
+  
+  .product-card .price-container .price {
+    font-size: 1.2rem;
+  }
+  
+  .product-card .price-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  
+  .product-card .btn-card {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+@media (min-width: 1600px) {
+  :root {
+    --card-height: 440px;
+  }
+  
+  .product-card .product-info h3 {
+    font-size: 1.1rem;
+  }
+  
+  .product-card .product-info .description {
+    font-size: 0.9rem;
+  }
+  
+  .product-card .price-container .price {
+    font-size: 1.5rem;
+  }
+}

@@ -55,11 +55,11 @@ const Accessories = () => {
 
   return (
     <div className="accessories-section">
-      <div className="container">
+      <div className="">
         <h2 className="section-title">Аксессуары</h2>
-        <div className="products-grid grid">
+        <div className="products-flex-wrap">
           {accessories.map(accessory => (
-            <div key={accessory.id} className="product-card glass fade-in">
+            <div key={accessory.id} className="product-card">
               <div className="product-image">
                 <img src={accessory.image} alt={accessory.name} />
               </div>

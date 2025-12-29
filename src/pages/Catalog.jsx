@@ -183,7 +183,7 @@ const Catalog = () => {
             
             {filteredProducts.length > 0 ? (
               <>
-                <div className="products-grid grid">
+                <div className="products-flex">
                   {filteredProducts.map(product => (
                     <ProductCard key={product.id} product={product} />
                   ))}

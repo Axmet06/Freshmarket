@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-import '../styles/brands.css';
-import { fetchGroceryCategories } from '../services/groceryApi';
+import "../styles/brands.css";
+import { fetchGroceryCategories } from "../services/groceryApi";
 
 const Brands = () => {
   const [categories, setCategories] = useState([]);
@@ -15,8 +15,8 @@ const Brands = () => {
         const categoriesData = await fetchGroceryCategories();
         setCategories(categoriesData);
       } catch (err) {
-        setError('Ошибка загрузки категорий');
-        console.error('Ошибка загрузки категорий:', err);
+        setError("Ошибка загрузки категорий");
+        console.error("Ошибка загрузки категорий:", err);
       } finally {
         setLoading(false);
       }
@@ -53,13 +53,19 @@ const Brands = () => {
         <h1 className="section-title">Категории</h1>
         <div className="brands-grid grid">
           {categories.map((category, index) => (
-            <div key={category.slug} className="brand-card glass">
+            <div
+              key={category.slug}
+              className="brand-card glass"
+              style={{ "--card-index": index }}
+            >
               <div className="brand-info">
                 <h3>{category.name}</h3>
                 <p>{category.slug}</p>
-                <button 
+                <button
                   className="btn-card-brand"
-                  onClick={() => window.location.href=`#/catalog?category=${category.slug}`}
+                  onClick={() =>
+                    (window.location.href = `#/catalog?category=${category.slug}`)
+                  }
                 >
                   Посмотреть товары
                 </button>

@@ -42,7 +42,7 @@ body {
 
 .main-content {
   flex: 1;
-  padding-top: 80px;
+  /* padding-top: 80px; */
 }
 
 .container {
@@ -152,10 +152,12 @@ body {
   border-radius: 15px; /* Более закругленные углы */
   border: 1px solid rgba(76, 175, 80, 0.3);
   box-shadow: var(--shadow);
+  transition: all 0.3s ease;
 }
 
 .glass:hover {
-  animation: glow 2s infinite;
+  box-shadow: var(--shadow-hover), var(--glow-effect);
+  transform: translateY(-12px);
 }
 
 /* Responsive grid */

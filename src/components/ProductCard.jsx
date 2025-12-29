@@ -20,7 +20,7 @@ const ProductCard = ({ product }) => {
               <button className="quick-add" onClick={handleAddToCart}>+</button>
             </div>
         </div>
-        <div className="product-info">
+        <div className="product-info-container">
           <h3 className="product-title">{product.name}</h3>
           <div className="product-meta">
             <span className="product-brand">{product.brand}</span>

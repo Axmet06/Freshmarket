@@ -137,6 +137,13 @@
   gap: 1rem;
 }
 
+.products-flex{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+}
+
 /* Load more button */
 .load-more-container {
   text-align: center;
