@@ -33,7 +33,7 @@ const Cart = () => {
                   <div className="item-details">
                     <h3>{item.name}</h3>
                     <p className="item-brand">{item.brand}</p>
-                    <p className="item-price">{item.price} $</p>
+                    <p className="item-price">{item.price} сом</p>
                   </div>
                   
                   <div className="item-quantity">
@@ -53,14 +53,14 @@ const Cart = () => {
                   </div>
                   
                   <div className="item-total">
-                    {item.price * item.quantity} $
+                    {(item.price * item.quantity).toFixed(2)} сом
                   </div>
                   
                   <button 
                     className="remove-btn"
                     onClick={() => removeFromCart(item.id)}
                   >
-                    ✕
+                    ×
                   </button>
                 </div>
               ))}
@@ -69,12 +69,18 @@ const Cart = () => {
             <div className="cart-summary glass">
               <h3>Итого</h3>
               <div className="summary-row">
-                <span>Общая стоимость:</span>
-                <span className="total-amount">{total} $</span>
+                <span>Общая сумма:</span>
+                <span className="total-amount">{total.toFixed(2)} сом</span>
               </div>
-              <button className="btn btn-primary checkout-btn" onClick={checkout}>
+              <button 
+                className="btn btn-primary checkout-btn"
+                onClick={checkout}
+              >
                 Оформить заказ
               </button>
+              <Link to="/catalog" className="btn btn-secondary continue-shopping">
+                Продолжить покупки
+              </Link>
             </div>
           </div>
         )}

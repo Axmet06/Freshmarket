@@ -1,25 +1,25 @@
 /* Home Page Styles */
 .home {
-  background-color: #ffe6f0; /* Розовый фон */
+  background-color: #e8f5e9; /* Светло-зеленый фон */
 }
 
 /* Promo Banner */
 .promo-banner {
-  background: linear-gradient(rgba(255, 105, 180, 0.8), rgba(255, 20, 147, 0.8)), 
+  background: linear-gradient(rgba(76, 175, 80, 0.8), rgba(56, 142, 60, 0.8)), 
               url('https://images.unsplash.com/photo-1585155770447-2f66e2a397b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1950&q=80');
   background-size: cover;
   background-position: center;
   color: white;
   padding: 4rem 0;
   text-align: center;
-  box-shadow: 0 4px 20px rgba(255, 105, 180, 0.3);
+  box-shadow: 0 4px 20px rgba(76, 175, 80, 0.3);
 }
 
 .promo-content h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: #ff69b4; /* Розовые акценты */
-  text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+  color: #4CAF50; /* Зеленые акценты */
+  text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
 }
 
 .promo-content h3 {
@@ -46,9 +46,9 @@
 .section-title {
   text-align: center;
   margin-bottom: 2rem;
-  color: #ff69b4; /* Розовый заголовок */
+  color: #4CAF50; /* Зеленый заголовок */
   font-size: 2rem;
-  text-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+  text-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
 }
 
 /* Products grid */
@@ -61,15 +61,15 @@
 /* CTA Section */
 .cta-section {
   padding: 3rem 0;
-  background-color: #ffb6c1; /* Светло-розовый фон */
+  background-color: #c8e6c9; /* Светло-зеленый фон */
 }
 
 .cta-content {
-  background: #fff0f5; /* Светло-розовый фон карточек */
+  background: #f1f8e9; /* Светло-зеленый фон карточек */
   padding: 2rem;
   border-radius: 15px; /* Закругленные углы */
   text-align: center;
-  box-shadow: 0 4px 20px rgba(255, 105, 180, 0.3);
+  box-shadow: 0 4px 20px rgba(76, 175, 80, 0.3);
   color: #333333;
   position: relative;
   overflow: hidden;
@@ -88,13 +88,13 @@
 }
 
 .cta-content:hover::before {
-  box-shadow: inset 0 0 20px rgba(255, 105, 180, 0.2);
+  box-shadow: inset 0 0 20px rgba(76, 175, 80, 0.2);
 }
 
 .cta-content h2 {
   margin-top: 0;
-  color: #ff69b4; /* Розовый заголовок */
-  text-shadow: 0 0 5px rgba(255, 105, 180, 0.3);
+  color: #4CAF50; /* Зеленый заголовок */
+  text-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
 }
 
 .cta-content p {
@@ -116,28 +116,28 @@
 }
 
 .btn-primary {
-  background: linear-gradient(45deg, #ff69b4, #ff1493); /* Градиентная розовая кнопка */
+  background: linear-gradient(45deg, #4CAF50, #388E3C); /* Градиентная зеленая кнопка */
   color: white;
   border: none;
-  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+  box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(45deg, #ff1493, #ff69b4); /* Обратный градиент при наведении */
+  background: linear-gradient(45deg, #388E3C, #4CAF50); /* Обратный градиент при наведении */
   transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(255, 105, 180, 0.5), 0 0 15px rgba(255, 105, 180, 0.3);
+  box-shadow: 0 6px 15px rgba(76, 175, 80, 0.5), 0 0 15px rgba(76, 175, 80, 0.3);
 }
 
 .btn-secondary {
-  background: #f8f0f6;
-  color: #ff69b4;
-  border: 1px solid #ff69b4;
-  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.2);
+  background: #f1f8e9;
+  color: #4CAF50;
+  border: 1px solid #4CAF50;
+  box-shadow: 0 4px 10px rgba(76, 175, 80, 0.2);
 }
 
 .btn-secondary:hover {
-  background: #f0e6ef;
-  box-shadow: 0 6px 15px rgba(255, 105, 180, 0.3);
+  background: #e8f5e9;
+  box-shadow: 0 6px 15px rgba(76, 175, 80, 0.3);
 }
 
 /* Loading and Error states */
@@ -148,7 +148,7 @@
 }
 
 .error {
-  color: #ff69b4; /* Розовая ошибка */
+  color: #4CAF50; /* Зеленая ошибка */
 }
 
 /* Responsive design */

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/reviews.css';
 import { getReviews } from '../api/reviews';
-import { fetchPerfumes } from '../services/perfumeApi';
+import { fetchGroceries } from '../services/groceryApi';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -16,7 +16,7 @@ const Reviews = () => {
         setLoading(true);
         
         // Fetch all products
-        const productsData = await fetchPerfumes();
+        const productsData = await fetchGroceries();
         setProducts(productsData);
         
         // Fetch all reviews (for product ID 1 as example, or you can fetch all)
@@ -24,7 +24,7 @@ const Reviews = () => {
         setReviews(reviewsData);
       } catch (err) {
         setError('Ошибка загрузки данных');
-        console.error('Error loading data:', err);
+        console.error('Ошибка загрузки данных:', err);
       } finally {
         setLoading(false);
       }
@@ -61,47 +61,49 @@ const Reviews = () => {
   return (
     <div className="reviews-page">
       <div className="container">
-        <h1 className="section-title">Все отзывы</h1>
+        <h1 className="section-title">Отзывы покупателей</h1>
         
-        {reviews.length === 0 ? (
-          <div className="no-reviews">
-            <p>Пока нет отзывов.</p>
-            <Link to="/catalog" className="btn btn-primary">
-              Перейти в каталог
-            </Link>
-          </div>
-        ) : (
-          <div className="reviews-list">
-            {reviews.map(review => {
-              // Find the product for this review
-              const product = products.find(p => p.id.toString() === review.product_id);
-              
-              return (
-                <div key={review.id} className="review-card">
+        <div className="reviews-content">
+          <div className="reviews-list glass">
+            {reviews.length > 0 ? (
+              reviews.map(review => (
+                <div key={review.id} className="review-item">
                   <div className="review-header">
-                    <div className="reviewer-name">{review.username}</div>
-                    <div className="review-date">
-                      {new Date(review.created_at).toLocaleDateString('ru-RU')}
+                    <h3>{review.username}</h3>
+                    <div className="review-rating">
+                      {renderRating(review.rating)}
                     </div>
-                  </div>
-                  
-                  {product && (
-                    <div className="review-product">
-                      <Link to={`/product/${product.id}`}>
-                        <h3>{product.name} от {product.brand}</h3>
-                      </Link>
-                    </div>
-                  )}
-                  
-                  <div className="review-rating">
-                    {renderRating(review.rating)}
                   </div>
                   <p className="review-comment">{review.comment}</p>
+                  <div className="review-date">
+                    {new Date(review.created_at).toLocaleDateString('ru-RU')}
+                  </div>
                 </div>
-              );
-            })}
+              ))
+            ) : (
+              <div className="no-reviews">
+                <p>Пока нет отзывов. Будьте первым!</p>
+              </div>
+            )}
           </div>
-        )}
+          
+          <div className="products-preview">
+            <h2>Популярные товары</h2>
+            <div className="products-grid grid">
+              {products.slice(0, 6).map(product => (
+                <div key={product.id} className="product-preview">
+                  <Link to={`/product/${product.id}`}>
+                    <div className="product-image">
+                      <img src={product.image} alt={product.name} />
+                    </div>
+                    <h3>{product.name}</h3>
+                    <p className="product-price">{product.price} сом</p>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

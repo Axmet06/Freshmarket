@@ -17,8 +17,7 @@ const Header = () => {
       <div className="container">
         <div className="logo">
           <Link to="/">
-            <h1>РОЗОВОЕ СИЯНИЕ</h1>
-            <p>Магазин эксклюзивных ароматов</p>
+            <h1>Онлайн магазин</h1>
           </Link>
         </div>
         <nav className="main-nav">
@@ -27,7 +26,7 @@ const Header = () => {
             <li><Link to="/catalog">Каталог</Link></li>
             <li><Link to="/brands">Бренды</Link></li>
             <li><Link to="/reviews">Отзывы</Link></li>
-            <li><Link to="/cart">Корзина</Link></li>
+            {/* <li><Link to="/cart">Корзина</Link></li> */}
             {currentUser ? (
               <>
                 <li><Link to="/profile">Профиль</Link></li>

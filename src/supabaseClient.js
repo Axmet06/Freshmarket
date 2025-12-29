@@ -5,7 +5,7 @@ import { createClient } from '@supabase/supabase-js'
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://your-project.supabase.co'
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'your-anon-key-here'
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+let supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 // Function to initialize Supabase client
 export const initSupabase = async () => {
@@ -24,3 +24,6 @@ export const initSupabase = async () => {
 
 // Getter function for Supabase client
 export const getSupabase = () => supabase;
+
+// Export the supabase client
+export { supabase };

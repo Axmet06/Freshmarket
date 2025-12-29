@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
-import FragranceSelector from '../components/FragranceSelector';
+import ProductTypeSelector from '../components/FragranceSelector';
 import Accessories from '../components/Accessories';
 import CustomerReviews from '../components/CustomerReviews';
 import ShopAdvantages from '../components/ShopAdvantages';
 import '../styles/home.css';
-import { fetchPerfumes } from '../services/perfumeApi';
+import { fetchGroceries } from '../services/groceryApi';
 
 const Home = () => {
   const [bestSellers, setBestSellers] = useState([]);
@@ -19,13 +19,15 @@ const Home = () => {
       try {
         setLoading(true);
         
-        const allPerfumes = await fetchPerfumes();
+        const allProducts = await fetchGroceries();
         
-        const shuffled = [...allPerfumes].sort(() => 0.5 - Math.random());
-        setBestSellers(shuffled.slice(0, 6));
+        // Sort by rating for best sellers
+        const sortedByRating = [...allProducts].sort((a, b) => b.rating - a.rating);
+        setBestSellers(sortedByRating.slice(0, 6));
         
-        const lastProducts = allPerfumes.slice(-6);
-        setNewArrivals(lastProducts);
+        // Sort by ID for new arrivals (higher IDs are newer)
+        const sortedById = [...allProducts].sort((a, b) => b.id - a.id);
+        setNewArrivals(sortedById.slice(0, 6));
       } catch (err) {
         setError(err.message);
         setBestSellers([]);
@@ -63,11 +65,11 @@ const Home = () => {
       <section className="promo-banner">
         <div className="container">
           <div className="promo-content">
-            <h2>НОВАЯ КОЛЛЕКЦИЯ</h2>
-            <h3>Сладкие ароматы лета</h3>
-            <p>Откройте для себя новые волшебные ароматы, которые подарят вам уверенность и неповторимый шарм</p>
+            <h2>СВЕЖИЕ ПОСТУПЛЕНИЯ</h2>
+            <h3>Органические продукты</h3>
+            <p>Откройте для себя свежие и качественные продукты, которые подарят вам здоровье и энергию</p>
             <Link to="/catalog" className="btn btn-primary">
-              Смотреть коллекцию
+              Смотреть каталог
             </Link>
           </div>
         </div>
@@ -75,7 +77,7 @@ const Home = () => {
 
       <section className="featured-section">
         <div className="container">
-          <h2 className="section-title">Хиты продаж</h2>
+          <h2 className="section-title">Популярные товары</h2>
           <div className="products-grid grid">
             {bestSellers.map(product => (
               <ProductCard key={product.id} product={product} />
@@ -100,7 +102,7 @@ const Home = () => {
 
       <section className="featured-section">
         <div className="container">
-          <FragranceSelector />
+          <ProductTypeSelector />
         </div>
       </section>
 
@@ -125,8 +127,8 @@ const Home = () => {
       <section className="cta-section">
         <div className="container">
           <div className="cta-content glass">
-            <h2>Подарите себе волшебство ароматов</h2>
-            <p>Откройте для себя эксклюзивные ароматы от ведущих мировых брендов</p>
+            <h2>Подарите себе свежесть и качество</h2>
+            <p>Откройте для себя лучшие продукты от проверенных поставщиков</p>
             <Link to="/catalog" className="btn btn-secondary">
               Перейти в каталог
             </Link>

@@ -1,6 +1,6 @@
 /* Стили для хедера */
 .header {
-  background: linear-gradient(90deg, var(--bright-pink), var(--fuchsia));
+  background: linear-gradient(90deg, #4CAF50, #8BC34A);
   box-shadow: var(--shadow);
   padding: 15px 0;
   position: fixed;
@@ -82,7 +82,7 @@
 
 .cart-btn {
   background: var(--white);
-  color: var(--fuchsia);
+  color: #4CAF50;
   border: none;
   padding: 10px 20px;
   border-radius: 30px;
@@ -100,7 +100,7 @@
 }
 
 .cart-count {
-  background: var(--bright-pink);
+  background: #4CAF50;
   color: white;
   border-radius: 50%;
   width: 22px;

@@ -1,18 +1,18 @@
 import React from 'react';
 import '../styles/fragrance-selector.css';
 
-const FragranceSelector = () => {
-  const fragranceTypes = [
-    { id: 1, name: 'Свежие', icon: '🍃' },
-    { id: 2, name: 'Восточные', icon: '🏜️' },
-    { id: 3, name: 'Цветочные', icon: '🌸' }
+const ProductTypeSelector = () => {
+  const productTypes = [
+    { id: 1, name: 'Овощи', icon: '🥕' },
+    { id: 2, name: 'Фрукты', icon: '🍎' },
+    { id: 3, name: 'Молочные', icon: '🥛' }
   ];
 
   return (
     <div className="fragrance-selector">
-      <h2 className="section-title">Подбор аромата</h2>
+      <h2 className="section-title">Подбор по типу</h2>
       <div className="fragrance-buttons">
-        {fragranceTypes.map(type => (
+        {productTypes.map(type => (
           <button key={type.id} className="fragrance-btn glass">
             <span className="fragrance-icon">{type.icon}</span>
             <span className="fragrance-name">{type.name}</span>
@@ -23,4 +23,4 @@ const FragranceSelector = () => {
   );
 };
 
-export default FragranceSelector;
+export default ProductTypeSelector;

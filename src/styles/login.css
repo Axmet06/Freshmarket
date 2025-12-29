@@ -4,10 +4,10 @@
   min-height: calc(100vh - 160px);
   display: flex;
   align-items: center;
-  background-color: #ffe6f0; /* Розовый фон */
+  background-color: #e8f5e9; /* Green background */
   background-image: 
-    radial-gradient(circle at 10% 20%, rgba(255, 182, 193, 0.2) 0%, transparent 20%),
-    radial-gradient(circle at 90% 80%, rgba(255, 192, 203, 0.2) 0%, transparent 20%);
+    radial-gradient(circle at 10% 20%, rgba(76, 175, 80, 0.2) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(139, 195, 74, 0.2) 0%, transparent 20%);
 }
 
 .auth-container {
@@ -16,7 +16,7 @@
   padding: 30px;
   background: var(--white);
   border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(255, 105, 180, 0.3);
+  box-shadow: 0 4px 20px rgba(76, 175, 80, 0.3);
   position: relative;
   overflow: hidden;
 }
@@ -34,13 +34,13 @@
 }
 
 .auth-container:hover::before {
-  box-shadow: inset 0 0 20px rgba(255, 105, 180, 0.2);
+  box-shadow: inset 0 0 20px rgba(76, 175, 80, 0.2);
 }
 
 .auth-tabs {
   display: flex;
   margin-bottom: 30px;
-  border-bottom: 1px solid rgba(255, 105, 180, 0.2);
+  border-bottom: 1px solid rgba(76, 175, 80, 0.2);
 }
 
 .tab-btn {
@@ -57,8 +57,8 @@
 }
 
 .tab-btn.active {
-  color: var(--fuchsia);
-  text-shadow: 0 0 5px rgba(255, 20, 147, 0.3);
+  color: #4CAF50;
+  text-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
 }
 
 .tab-btn.active::after {
@@ -68,9 +68,9 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: var(--bright-pink);
+  background: #4CAF50;
   border-radius: 2px;
-  box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
 }
 
 .form-group {
@@ -87,29 +87,29 @@
 .form-group input {
   width: 100%;
   padding: 12px 15px;
-  border: 1px solid rgba(255, 105, 180, 0.3);
+  border: 1px solid rgba(76, 175, 80, 0.3);
   border-radius: 30px;
   background: var(--white);
   font-family: inherit;
   font-size: 1rem;
-  box-shadow: 0 2px 5px rgba(255, 105, 180, 0.1);
+  box-shadow: 0 2px 5px rgba(76, 175, 80, 0.1);
   transition: all 0.3s ease;
 }
 
 .form-group input:focus {
   outline: none;
-  border-color: var(--bright-pink);
-  box-shadow: 0 0 0 2px rgba(255, 105, 180, 0.3), 0 0 10px rgba(255, 105, 180, 0.3);
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.3), 0 0 10px rgba(76, 175, 80, 0.3);
 }
 
 .profile-value {
   padding: 12px 15px;
-  border: 1px solid rgba(255, 105, 180, 0.3);
+  border: 1px solid rgba(76, 175, 80, 0.3);
   border-radius: 30px;
   background: var(--white);
   font-family: inherit;
   font-size: 1rem;
-  box-shadow: 0 2px 5px rgba(255, 105, 180, 0.1);
+  box-shadow: 0 2px 5px rgba(76, 175, 80, 0.1);
   transition: all 0.3s ease;
   color: var(--dark-text);
   font-weight: 500;
@@ -120,39 +120,39 @@
   padding: 15px;
   font-size: 1.1rem;
   margin-top: 10px;
-  background: linear-gradient(45deg, #ff69b4, #ff1493);
+  background: linear-gradient(45deg, #4CAF50, #8BC34A);
   border: none;
   border-radius: 30px;
-  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+  box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
   transition: all 0.3s ease;
 }
 
 .auth-btn:hover {
-  background: linear-gradient(45deg, #ff1493, #ff69b4);
+  background: linear-gradient(45deg, #8BC34A, #4CAF50);
   transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(255, 105, 180, 0.5), 0 0 15px rgba(255, 105, 180, 0.3);
+  box-shadow: 0 6px 15px rgba(76, 175, 80, 0.5), 0 0 15px rgba(76, 175, 80, 0.3);
 }
 
 .auth-footer {
   text-align: center;
   margin-top: 20px;
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 105, 180, 0.1);
+  border-top: 1px solid rgba(76, 175, 80, 0.1);
 }
 
 .link-btn {
   background: none;
   border: none;
-  color: var(--bright-pink);
+  color: #4CAF50;
   font-weight: 600;
   cursor: pointer;
   text-decoration: underline;
-  text-shadow: 0 0 5px rgba(255, 105, 180, 0.3);
+  text-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
 }
 
 .link-btn:hover {
-  color: var(--fuchsia);
-  text-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
+  color: #8BC34A;
+  text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
 }
 
 .success-message {

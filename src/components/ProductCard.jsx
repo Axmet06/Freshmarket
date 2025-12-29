@@ -6,36 +6,42 @@ const ProductCard = ({ product }) => {
   const { addToCart } = useCart();
 
   const handleAddToCart = (e) => {
-    // Prevent navigation when clicking the "Add to Cart" button
     e.stopPropagation();
     addToCart(product);
   };
 
   return (
     <Link to={`/product/${product.id}`} className="product-card-link">
-      <div className="product-card glass fade-in">
-        {product.isNew && (
-          <div className="new-label">NEW</div>
-        )}
-        
+      <div className="product-card">
         <div className="product-image">
-          <img src={product.image} alt={product.name} />
+            <img src={product.image} alt={product.name} />
+            {product.badge && <span className="product-badge">{product.badge}</span>}
+            <div className="image-overlay">
+              <button className="quick-add" onClick={handleAddToCart}>+</button>
+            </div>
         </div>
         <div className="product-info">
-          <h3>{product.name}</h3>
-          <p className="brand">{product.brand}</p>
-          
-          {product.description && (
-            <p className="description">{product.description.substring(0, 100)}...</p>
-          )}
-          
-          <div className="price-container">
-            {product.price ? (
-              <div className="price">{product.price} $</div>
-            ) : (
-              <div className="price">Цена по запросу</div>
-            )}
-            <button className="btn btn-card" onClick={handleAddToCart}>Добавить в корзину</button>
+          <h3 className="product-title">{product.name}</h3>
+          <div className="product-meta">
+            <span className="product-brand">{product.brand}</span>
+            <div className="product-rating-stock">
+              <span className="product-rating">
+                <span className="stars">
+                  {'★'.repeat(Math.floor(product.rating))}
+                  {'☆'.repeat(5 - Math.floor(product.rating))}
+                </span>
+                <span className="rating-value">{product.rating}</span>
+              </span>
+              <span className="product-stock">
+                {product.stock > 0 ? `В наличии: ${product.stock} шт.` : 'Нет в наличии'}
+              </span>
+            </div>
+          </div>
+          <div className="product-footer">
+            <div className="price-and-btn">
+              <div className="product-price">{typeof product.price === 'number' ? product.price.toLocaleString() : product.price}</div>
+              <button className="add-to-cart-btn" onClick={handleAddToCart}>В корзину</button>
+            </div>
           </div>
         </div>
       </div>

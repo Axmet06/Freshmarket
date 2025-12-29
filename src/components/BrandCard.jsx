@@ -9,7 +9,7 @@ const BrandCard = ({ brand }) => {
       </div>
       <h3>{brand.name}</h3>
       <Link to={`/catalog?brand=${brand.id}`} className="btn btn-card">
-        Посмотреть ароматы
+        Посмотреть товары
       </Link>
     </div>
   );

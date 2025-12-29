@@ -2,53 +2,50 @@ import { useState, useEffect } from 'react';
 import ProductCard from '../components/ProductCard';
 import '../styles/catalog.css';
 
-import { fetchPerfumes, searchPerfumes } from '../services/perfumeApi';
+import { fetchGroceries, fetchGroceryCategories, searchGroceries } from '../services/groceryApi';
 
-
-const brands = [
-  { id: "chanel", name: "Chanel" },
-  { id: "dior", name: "Dior" },
-  { id: "gucci", name: "Gucci" },
-  { id: "prada", name: "Prada" },
-  { id: "ysl", name: "Yves Saint Laurent" },
-  { id: "dolce", name: "Dolce & Gabbana" }
-];
-
-const categories = [
-  { id: "women", name: "Женские" },
-  { id: "men", name: "Мужские" },
-  { id: "unisex", name: "Унисекс" }
-];
 
 const Catalog = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedBrand, setSelectedBrand] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
-  const [priceRange, setPriceRange] = useState([0, 300]);
+  const [priceRange, setPriceRange] = useState([0, 2000]); // Higher range for groceries
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
+
+  useEffect(() => {
+    const loadCategories = async () => {
+      try {
+        const categoriesData = await fetchGroceryCategories();
+        setCategories(categoriesData);
+      } catch (err) {
+        console.error('Ошибка загрузки категорий:', err);
+      }
+    };
+
+    loadCategories();
+  }, []);
 
   useEffect(() => {
     const loadProducts = async () => {
       try {
         setLoading(true);
-        const params = { limit: 20, page: page };
+        const params = { limit: 20, skip: (page - 1) * 20 };
         
         if (selectedCategory) params.category = selectedCategory;
-        if (selectedBrand) params.brand = selectedBrand;
         if (searchTerm) {
-          const data = await searchPerfumes(searchTerm);
+          const data = await searchGroceries(searchTerm);
           setProducts(data);
           setFilteredProducts(data);
           setHasMore(false);
           return;
         }
         
-        const data = await fetchPerfumes(params);
+        const data = await fetchGroceries(params);
         if (page === 1) {
           setProducts(data);
           setFilteredProducts(data);
@@ -57,7 +54,6 @@ const Catalog = () => {
           setFilteredProducts(prev => [...prev, ...data]);
         }
         
-    
         setHasMore(data.length === 20);
       } catch (err) {
         setError(err.message);
@@ -70,12 +66,11 @@ const Catalog = () => {
     };
 
     loadProducts();
-  }, [selectedCategory, selectedBrand, searchTerm, page]);
+  }, [selectedCategory, searchTerm, page]);
 
   useEffect(() => {
     let result = [...products];
     
-
     result = result.filter(product => 
       product.price >= priceRange[0] && product.price <= priceRange[1]
     );
@@ -86,9 +81,8 @@ const Catalog = () => {
 
   const resetFilters = () => {
     setSearchTerm('');
-    setSelectedBrand('');
     setSelectedCategory('');
-    setPriceRange([0, 300]);
+    setPriceRange([0, 2000]);
     setPage(1);
   };
 
@@ -101,7 +95,7 @@ const Catalog = () => {
     return (
       <div className="catalog">
         <div className="container">
-          <h1 className="section-title">Каталог ароматов</h1>
+          <h1 className="section-title">Каталог продуктов</h1>
           <div className="loading">Загрузка товаров...</div>
         </div>
       </div>
@@ -112,7 +106,7 @@ const Catalog = () => {
     return (
       <div className="catalog">
         <div className="container">
-          <h1 className="section-title">Каталог ароматов</h1>
+          <h1 className="section-title">Каталог продуктов</h1>
           <div className="error">Ошибка загрузки: {error}</div>
         </div>
       </div>
@@ -122,7 +116,7 @@ const Catalog = () => {
   return (
     <div className="catalog">
       <div className="container">
-        <h1 className="section-title">Каталог ароматов</h1>
+        <h1 className="section-title">Каталог продуктов</h1>
         
         <div className="catalog-content">
         
@@ -144,25 +138,6 @@ const Catalog = () => {
             </div>
             
             <div className="filter-group">
-              <label>Бренд:</label>
-              <select
-                value={selectedBrand}
-                onChange={(e) => {
-                  setSelectedBrand(e.target.value);
-                  setPage(1);
-                }}
-                className="filter-select"
-              >
-                <option value="">Все бренды</option>
-                {brands.map(brand => (
-                  <option key={brand.id} value={brand.name}>
-                    {brand.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-            
-            <div className="filter-group">
               <label>Категория:</label>
               <select
                 value={selectedCategory}
@@ -174,7 +149,7 @@ const Catalog = () => {
               >
                 <option value="">Все категории</option>
                 {categories.map(category => (
-                  <option key={category.id} value={category.id}>
+                  <option key={category.slug} value={category.slug}>
                     {category.name}
                   </option>
                 ))}
@@ -182,13 +157,13 @@ const Catalog = () => {
             </div>
             
             <div className="filter-group">
-              <label>Цена: {priceRange[0]} $ - {priceRange[1]} $</label>
+              <label>Цена: {priceRange[0]} сом - {priceRange[1]} сом</label>
               <div className="price-range">
                 <input
                   type="range"
                   min="0"
-                  max="300"
-                  step="5"
+                  max="2000"
+                  step="10"
                   value={priceRange[1]}
                   onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value)])}
                 />
@@ -203,7 +178,7 @@ const Catalog = () => {
           
           <div className="products-list">
             <div className="products-header">
-              <p>Найдено: {filteredProducts.length} ароматов</p>
+              <p>Найдено: {filteredProducts.length} продуктов</p>
             </div>
             
             {filteredProducts.length > 0 ? (

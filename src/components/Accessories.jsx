@@ -5,51 +5,51 @@ const Accessories = () => {
   const accessories = [
     {
       id: 1,
-      name: 'Тестер Light Blue',
-      brand: 'Dolce & Gabbana',
+      name: 'Сумка-холодильник',
+      brand: 'CoolBag',
       image: 'https://images.unsplash.com/photo-1585155770447-2f66e2a397b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
-      price: 45,
-      description: 'Тестер полноразмерного флакона'
+      price: 390,
+      description: 'Для сохранения свежести продуктов'
     },
     {
       id: 2,
-      name: 'Дорожный атомайзер',
-      brand: 'Unbranded',
+      name: 'Контейнеры для хранения',
+      brand: 'FoodSafe',
       image: 'https://images.unsplash.com/photo-1604186264148-9e761d719580?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
-      price: 35,
-      description: 'Для путешествий 100 мл'
+      price: 260,
+      description: 'Набор герметичных контейнеров'
     },
     {
       id: 3,
-      name: 'Подарочная упаковка',
-      brand: 'Luxury Pack',
+      name: 'Термос 1 литр',
+      brand: 'ThermoPro',
       image: 'https://images.unsplash.com/photo-1591353842971-9ac335aabfab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
-      price: 25,
-      description: 'Элегантная коробка с лентой'
+      price: 870,
+      description: 'Сохраняет температуру до 24 часов'
     },
     {
       id: 4,
-      name: 'Мини-набор Chanel',
-      brand: 'Chanel',
+      name: 'Набор для завтрака',
+      brand: 'MorningFresh',
       image: 'https://images.unsplash.com/photo-1585155770447-2f66e2a397b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
-      price: 89,
-      description: '3x10 мл миниатюры'
+      price: 1300,
+      description: 'Кружка, ложка, вилка, салфетница'
     },
     {
       id: 5,
-      name: 'Атомайзер розовое золото',
-      brand: 'Premium',
+      name: 'Повторно используемый пакет',
+      brand: 'EcoLife',
       image: 'https://images.unsplash.com/photo-1604186264148-9e761d719580?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
-      price: 65,
-      description: 'Металлический 50 мл'
+      price: 170,
+      description: 'Экологичная альтернатива пластику'
     },
     {
       id: 6,
-      name: 'Подарочный пакет',
-      brand: 'Store Exclusive',
+      name: 'Подставка для фруктов',
+      brand: 'KitchenStyle',
       image: 'https://images.unsplash.com/photo-1591353842971-9ac335aabfab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
-      price: 15,
-      description: 'С логотипом магазина'
+      price: 430,
+      description: 'Деревянная подставка для хранения'
     }
   ];
 
@@ -68,7 +68,7 @@ const Accessories = () => {
                 <p className="brand">{accessory.brand}</p>
                 <p className="description">{accessory.description}</p>
                 <div className="price-container">
-                  <div className="price">{accessory.price} $</div>
+                  <div className="price">{accessory.price} сом</div>
                   <button className="btn btn-card">Добавить в корзину</button>
                 </div>
               </div>

@@ -1,7 +1,7 @@
 /* Стили для страницы корзины */
 .cart-page {
   padding: 30px 0;
-  background-color: #ffe6f0; /* Розовый фон */
+  background-color: #e8f5e9; /* Светло-зеленый фон */
 }
 
 .cart-content {
@@ -12,9 +12,9 @@
 
 .cart-items {
   padding: 20px;
-  background: #fff0f5; /* Светло-розовый фон */
+  background: #f1f8e9; /* Светло-зеленый фон */
   border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(255, 105, 180, 0.3);
+  box-shadow: 0 4px 20px rgba(76, 175, 80, 0.3);
   position: relative;
   overflow: hidden;
 }
@@ -32,7 +32,7 @@
 }
 
 .cart-items:hover::before {
-  box-shadow: inset 0 0 20px rgba(255, 105, 180, 0.2);
+  box-shadow: inset 0 0 20px rgba(76, 175, 80, 0.2);
 }
 
 .cart-item {
@@ -41,7 +41,7 @@
   gap: 15px;
   align-items: center;
   padding: 15px 0;
-  border-bottom: 1px solid rgba(255, 105, 180, 0.2);
+  border-bottom: 1px solid rgba(76, 175, 80, 0.2);
 }
 
 .cart-item:last-child {
@@ -54,10 +54,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--light-pink);
+  background: var(--light-green);
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 2px 5px rgba(255, 105, 180, 0.1);
+  box-shadow: 0 2px 5px rgba(76, 175, 80, 0.1);
 }
 
 .item-image img {
@@ -68,20 +68,20 @@
 .item-details h3 {
   margin-bottom: 5px;
   color: var(--dark-text);
-  color: #ff69b4; /* Розовое название */
+  color: #4CAF50; /* Зеленое название */
 }
 
 .item-brand {
-  color: var(--fuchsia);
+  color: var(--accent-green);
   font-size: 0.9rem;
   margin-bottom: 5px;
-  text-shadow: 0 0 5px rgba(255, 20, 147, 0.3);
+  text-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
 }
 
 .item-price {
   font-weight: 600;
-  color: var(--bright-pink);
-  text-shadow: 0 0 5px rgba(255, 105, 180, 0.3);
+  color: var(--accent-green);
+  text-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
 }
 
 .item-quantity {
@@ -95,20 +95,20 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  border: 1px solid var(--bright-pink);
+  border: 1px solid var(--accent-green);
   background: var(--white);
-  color: var(--bright-pink);
+  color: var(--accent-green);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 5px rgba(255, 105, 180, 0.1);
+  box-shadow: 0 2px 5px rgba(76, 175, 80, 0.1);
 }
 
 .qty-btn:hover {
-  background: var(--bright-pink);
+  background: var(--accent-green);
   color: white;
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+  box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
 }
 
 .qty-value {
@@ -119,9 +119,9 @@
 
 .item-total {
   font-weight: 700;
-  color: var(--fuchsia);
+  color: var(--accent-green);
   text-align: center;
-  text-shadow: 0 0 5px rgba(255, 20, 147, 0.3);
+  text-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
 }
 
 .remove-btn {
@@ -129,27 +129,27 @@
   height: 30px;
   border-radius: 50%;
   border: none;
-  background: var(--light-pink);
-  color: var(--fuchsia);
+  background: var(--light-green);
+  color: var(--accent-green);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 5px rgba(255, 105, 180, 0.1);
+  box-shadow: 0 2px 5px rgba(76, 175, 80, 0.1);
 }
 
 .remove-btn:hover {
-  background: var(--fuchsia);
+  background: var(--accent-green);
   color: white;
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+  box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
 }
 
 .cart-summary {
   padding: 25px;
   height: fit-content;
-  background: #fff0f5; /* Светло-розовый фон */
+  background: #f1f8e9; /* Светло-зеленый фон */
   border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(255, 105, 180, 0.3);
+  box-shadow: 0 4px 20px rgba(76, 175, 80, 0.3);
   position: relative;
   overflow: hidden;
 }
@@ -167,15 +167,15 @@
 }
 
 .cart-summary:hover::before {
-  box-shadow: inset 0 0 20px rgba(255, 105, 180, 0.2);
+  box-shadow: inset 0 0 20px rgba(76, 175, 80, 0.2);
 }
 
 .cart-summary h3 {
-  color: var(--fuchsia);
+  color: var(--accent-green);
   margin-bottom: 20px;
   padding-bottom: 10px;
-  border-bottom: 1px solid rgba(255, 105, 180, 0.2);
-  text-shadow: 0 0 5px rgba(255, 20, 147, 0.3);
+  border-bottom: 1px solid rgba(76, 175, 80, 0.2);
+  text-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
 }
 
 .summary-row {
@@ -187,25 +187,25 @@
 
 .total-amount {
   font-weight: 700;
-  color: var(--bright-pink);
-  text-shadow: 0 0 5px rgba(255, 105, 180, 0.3);
+  color: var(--accent-green);
+  text-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
 }
 
 .checkout-btn {
   width: 100%;
   padding: 15px;
   font-size: 1.1rem;
-  background: linear-gradient(45deg, #ff69b4, #ff1493);
+  background: linear-gradient(45deg, #4CAF50, #388E3C);
   border: none;
   border-radius: 30px;
-  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+  box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
   transition: all 0.3s ease;
 }
 
 .checkout-btn:hover {
-  background: linear-gradient(45deg, #ff1493, #ff69b4);
+  background: linear-gradient(45deg, #388E3C, #4CAF50);
   transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(255, 105, 180, 0.5), 0 0 15px rgba(255, 105, 180, 0.3);
+  box-shadow: 0 6px 15px rgba(76, 175, 80, 0.5), 0 0 15px rgba(76, 175, 80, 0.3);
 }
 
 .empty-cart {
@@ -214,7 +214,7 @@
   background: var(--white);
   border-radius: 15px;
   box-shadow: var(--shadow);
-  color: #ff69b4; /* Розовый текст */
+  color: #4CAF50; /* Зеленый текст */
 }
 
 .empty-cart p {

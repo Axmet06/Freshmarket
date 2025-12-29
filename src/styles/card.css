@@ -1,218 +1,177 @@
-/* Product Card Link */
-.product-card-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  transition: transform 0.3s ease;
+/* ------------------------------------------------------------------
+   Product cards — полный стиль с нуля
+   Цель: компактные, минималистичные, одинаковой высоты, визуально дорогие
+-------------------------------------------------------------------*/
+:root{
+  --card-white: #ffffff;
+  --text: #111827; /* primary text */
+  --muted: #6b7280; /* secondary */
+  --accent: #1f8b3a; /* price / accent */
+  --border: #e6e9ec;
+  --shadow-soft: 0 6px 18px rgba(17,24,39,0.06);
+  --shadow-hover: 0 18px 40px rgba(17,24,39,0.10);
+  --radius: 10px;
+  --card-height: 360px; /* uniform card height (adjustable) */
+  --gap: 16px;
 }
 
-.product-card-link:hover {
-  transform: translateY(-5px);
-}
+/* Reset / link wrapper (do not change HTML) */
+.product-card-link{display:block;color:inherit;text-decoration:none;height:100%}
 
-/* Product Card Styles */
-.product-card {
-  background: #fff0f5; /* Светло-розовый фон карточек */
-  border-radius: 15px; /* Более закругленные углы */
+/* Card baseline */
+.product-card{
+  background: var(--card-white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(255, 105, 180, 0.3);
-  transition: all 0.3s ease;
-  color: #333333; /* Темный текст */
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  position: relative;
-  cursor: pointer;
+  display:flex;
+  flex-direction:column;
+  height:var(--card-height); /* enforces identical heights */
+  min-width: 0; /* for ellipsis to work inside flex items */
+  transition: transform .22s ease, box-shadow .22s ease;
 }
 
-.product-card:hover {
-  box-shadow: 0 6px 20px rgba(255, 105, 180, 0.5);
-  border: 1px solid rgba(255, 105, 180, 0.3);
+.product-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-hover)}
+
+/* IMAGE: centered, prominent */
+.product-image{
+  flex:0 0 48%; /* fixed portion for the image area */
+  display:flex;align-items:center;justify-content:center;padding:12px;background:transparent;
+}
+.product-image img{
+  max-width:70%;max-height:100%;object-fit:contain;transition:transform .32s ease;
+}
+.product-card:hover .product-image img{transform:scale(1.06)}
+
+/* CONTENT: compact spacing and clear hierarchy */
+.product-info{flex:1 1 auto;display:flex;flex-direction:column;padding:12px 14px 14px 14px;gap:6px;min-height:0}
+
+.product-brand{font-size:0.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;font-weight:600}
+
+.product-title{
+  font-size:0.98rem;line-height:1.16;color:var(--text);font-weight:700;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis;
 }
 
-.product-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 15px;
-  pointer-events: none;
-  transition: box-shadow 0.3s ease;
+/* rating and stock — single row */
+.product-meta{display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:var(--muted);gap:8px}
+.product-meta .left{display:flex;align-items:center;gap:8px}
+.stars{color:#f59e0b;font-size:0.9rem;line-height:1}
+.rating-value{font-weight:700;color:#374151;font-size:0.82rem}
+.product-stock{white-space:nowrap;color:var(--muted)}
+.product-stock.out{color:#b91c1c;font-weight:700}
+
+/* Footer — price emphasis, minimal button */
+.product-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:8px;border-top:1px solid var(--border)}
+
+.price-and-btn{display:flex;align-items:center;gap:12px}
+.product-price{font-size:1.24rem;font-weight:900;color:var(--accent);line-height:1}
+.product-price .currency{font-size:0.78rem;font-weight:700;color:var(--accent);margin-left:6px}
+
+.add-to-cart-btn{background:var(--accent);color:#fff;border:none;padding:8px 12px;border-radius:6px;font-weight:700;font-size:0.85rem;cursor:pointer;box-shadow:none;transition:opacity .14s ease,transform .14s ease}
+.add-to-cart-btn:hover{transform:translateY(-2px);opacity:0.98}
+
+/* Compact variations for narrow widths */
+@media (max-width:1000px){:root{--card-height:340px}}
+@media (max-width:720px){
+  :root{--card-height:320px}
+  .product-image{flex:0 0 44%}
+  .product-image img{max-width:60%}
 }
 
-.product-card:hover::before {
-  box-shadow: inset 0 0 20px rgba(255, 105, 180, 0.2);
+/* Responsive grid helper (optional, won't break existing layout) */
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:var(--gap)}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion:reduce){
+  .product-card,.product-image img{transition:none}
 }
 
-/* NEW label */
-.new-label {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: #ff69b4;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: bold;
-  z-index: 2;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+/* Small screens: stack content slightly */
+@media (max-width:420px){
+  :root{--card-height:300px}
+  .product-title{font-size:0.95rem}
+  .product-price{font-size:1.06rem}
+  .add-to-cart-btn{padding:7px 10px;font-size:0.82rem}
 }
 
-.product-image {
-  width: 100%;
-  height: 200px;
+/* =====================
+   Scandinavian (IKEA-like) variant — final polish
+   - very light, airy, white cards
+   - thin separators, lots of whitespace
+   - compact height, prominent price
+   - minimal button (outline or subtle fill)
+ ===================== */
+
+:root{
+  --sc-bg: #f7f8f9;
+  --sc-card: #ffffff;
+  --sc-text: #0b1720;
+  --sc-muted: #6b7280;
+  --sc-accent: #0b9a64; /* soft green accent */
+  --sc-border: #edf0f2;
+  --sc-shadow: 0 8px 20px rgba(9,15,20,0.04);
+  --sc-radius: 12px;
+  --sc-card-height: 320px;
+}
+
+/* wrapper background (page should use this) */
+.product-card-link{display:block;color:inherit;text-decoration:none;height:100%}
+
+.product-card{
+  background: var(--sc-card);
+  border-radius: var(--sc-radius);
+  box-shadow: var(--sc-shadow);
   overflow: hidden;
+  display:flex;
+  flex-direction:column;
+  height:var(--sc-card-height);
+  min-width:0;
+  border:1px solid var(--sc-border);
+  transition:transform .18s ease,box-shadow .18s ease;
 }
 
-.product-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
+.product-card:hover{transform:translateY(-6px);box-shadow:0 22px 46px rgba(9,15,20,0.06)}
 
-.product-card:hover .product-image img {
-  transform: scale(1.05);
-}
+/* image block: centered, large, with breathing room */
+.product-image{flex:0 0 52%;display:flex;align-items:center;justify-content:center;padding:14px;background:transparent}
+.product-image img{max-width:65%;max-height:100%;object-fit:contain;transition:transform .28s ease}
+.product-card:hover .product-image img{transform:scale(1.04)}
 
-.product-info {
-  padding: 1rem;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-}
+/* optional badge (kept minimalist) */
+.product-badge{position:absolute;left:12px;top:12px;background:var(--sc-accent);color:#fff;padding:6px 10px;border-radius:999px;font-size:0.72rem;font-weight:700}
 
-.product-info h3 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.2rem;
-  color: #ff69b4; /* Розовый заголовок */
-  text-shadow: 0 0 5px rgba(255, 105, 180, 0.3);
-}
+.image-overlay{display:none}
 
-.brand {
-  color: #ff69b4; /* Розовый бренд */
-  font-size: 0.9rem;
-  margin: 0 0 0.5rem 0;
-  font-weight: bold;
-}
+/* content */
+.product-info{flex:1 1 auto;display:flex;flex-direction:column;padding:12px 14px 14px 14px;gap:6px;min-height:0}
 
-.description {
-  color: #555;
-  font-size: 0.9rem;
-  margin: 0 0 0.5rem 0;
-  flex-grow: 1;
-}
+.product-brand{font-size:0.68rem;color:var(--sc-muted);text-transform:uppercase;letter-spacing:0.06em;font-weight:600}
 
-.price-container {
-  margin-top: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
+.product-title{font-size:1rem;line-height:1.18;color:var(--sc-text);font-weight:700;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis}
 
-.price {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #ff69b4; /* Розовая цена */
-  margin: 0.5rem 0;
-  text-shadow: 0 0 5px rgba(255, 105, 180, 0.2);
-}
+.product-meta{display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:var(--sc-muted);gap:8px}
+.product-meta .left{display:flex;align-items:center;gap:8px}
+.stars{color:#f2b400;font-size:0.86rem}
+.rating-value{font-weight:700;color:#374151;font-size:0.82rem}
+.product-stock{white-space:nowrap;color:var(--sc-muted)}
+.product-stock.out{color:#b91c1c;font-weight:700}
 
-.btn-card {
-  background: linear-gradient(45deg, #ff69b4, #ff1493); /* Градиентная розовая кнопка */
-  color: #FFFFFF;
-  border: none;
-  padding: 0.75rem 1rem;
-  border-radius: 30px; /* Закругленная кнопка */
-  text-align: center;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  width: 100%;
-  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
-  position: relative;
-  overflow: hidden;
-}
+/* footer: thin divider, price prominent, minimal button */
+.product-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:10px;border-top:1px solid var(--sc-border)}
+.price-and-btn{display:flex;align-items:center;gap:12px}
+.product-price{font-size:1.28rem;font-weight:900;color:var(--sc-accent);line-height:1}
+.product-price .currency{font-size:0.78rem;font-weight:700;color:var(--sc-accent);margin-left:6px}
 
-.btn-card:hover {
-  background: linear-gradient(45deg, #ff1493, #ff69b4); /* Обратный градиент при наведении */
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(255, 105, 180, 0.5), 0 0 15px rgba(255, 105, 180, 0.3);
-}
+.add-to-cart-btn{background:transparent;border:1px solid rgba(11,150,100,0.12);color:var(--sc-accent);padding:8px 12px;border-radius:8px;font-weight:700;font-size:0.86rem;cursor:pointer;transition:background .14s ease,transform .14s ease}
+.add-to-cart-btn:hover{background:rgba(11,150,100,0.06);transform:translateY(-2px)}
 
-.btn-card:active {
-  transform: translateY(0);
-}
+/* compact layout for price above or next to button on very narrow cards */
+.price-and-btn .product-price{white-space:nowrap}
 
-/* Brand Card Styles */
-.brand-card {
-  background: #fff0f5; /* Светло-розовый фон */
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(255, 105, 180, 0.3);
-  text-align: center;
-  padding: 1.5rem 1rem;
-  transition: all 0.3s ease;
-  color: #333333;
-  position: relative;
-}
+/* responsive tweaks */
+@media (max-width:900px){:root{--sc-card-height:300px}.product-image{flex:0 0 46%}.product-image img{max-width:60%}}
+@media (max-width:600px){:root{--sc-card-height:280px}.product-image{flex:0 0 44%}.product-title{font-size:0.96rem}.product-price{font-size:1.08rem}}
 
-.brand-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(255, 105, 180, 0.5);
-  border: 1px solid rgba(255, 105, 180, 0.3);
-}
+@media (prefers-reduced-motion:reduce){.product-card,.product-image img{transition:none}}
 
-.brand-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 15px;
-  pointer-events: none;
-  transition: box-shadow 0.3s ease;
-}
 
-.brand-card:hover::before {
-  box-shadow: inset 0 0 20px rgba(255, 105, 180, 0.2);
-}
-
-.brand-logo {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 1rem;
-}
-
-.brand-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.brand-card h3 {
-  margin: 0 0 1rem 0;
-  color: #ff69b4; /* Розовый заголовок */
-  text-shadow: 0 0 5px rgba(255, 105, 180, 0.3);
-}
-
-/* Glass effect */
-.glass {
-  background: rgba(255, 240, 245, 0.8);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 182, 193, 0.3);
-}
-
-/* Fade in animation */
-.fade-in {
-  animation: fadeIn 0.5s ease-in;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
