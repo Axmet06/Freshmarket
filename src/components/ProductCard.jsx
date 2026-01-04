@@ -12,7 +12,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <Link to={`/product/${product.id}`} className="product-card-link">
-      <div className="product-card">
+      <div className="product-card-container">
         <div className="product-image">
             <img src={product.image} alt={product.name} />
             {product.badge && <span className="product-badge">{product.badge}</span>}
@@ -20,7 +20,7 @@ const ProductCard = ({ product }) => {
               <button className="quick-add" onClick={handleAddToCart}>+</button>
             </div>
         </div>
-        <div className="product-info">
+        <div className="product-info-container">
           <h3 className="product-title">{product.name}</h3>
           <div className="product-meta">
             <span className="product-brand">{product.brand}</span>

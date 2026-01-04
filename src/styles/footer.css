@@ -1,7 +1,7 @@
 /* Стили для футера */
 .footer {
   background: linear-gradient(90deg, var(--fuchsia), var(--bright-pink));
-  color: var(--white);
+  color: #333;
   padding: 50px 0 20px;
   margin-top: 50px;
 }
@@ -58,7 +58,7 @@
 }
 
 .footer-section a {
-  color: var(--white);
+  color: #333;
   text-decoration: none;
   opacity: 0.9;
   transition: all 0.3s ease;

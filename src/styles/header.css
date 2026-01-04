@@ -3,7 +3,7 @@
   background: linear-gradient(90deg, #4CAF50, #8BC34A);
   box-shadow: var(--shadow);
   padding: 15px 0;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;

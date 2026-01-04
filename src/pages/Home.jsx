@@ -78,7 +78,7 @@ const Home = () => {
       <section className="featured-section">
         <div className="container">
           <h2 className="section-title">Популярные товары</h2>
-          <div className="products-grid grid">
+          <div className="products-flex-wrap">
             {bestSellers.map(product => (
               <ProductCard key={product.id} product={product} />
             ))}
@@ -89,7 +89,7 @@ const Home = () => {
       <section className="featured-section">
         <div className="container">
           <h2 className="section-title">Новинки</h2>
-          <div className="products-grid grid">
+          <div className="products-flex-wrap">
             {newArrivals.map(product => (
               <ProductCard 
                 key={product.id} 

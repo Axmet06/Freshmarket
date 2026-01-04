@@ -16,6 +16,8 @@
 .catalog-content {
   display: flex;
   gap: 2rem;
+  width: 100%;
+  max-width: 1300px;
 }
 
 /* Filters sidebar */
@@ -26,10 +28,18 @@
   border-radius: 15px; /* Закругленные углы */
   box-shadow: 0 4px 20px rgba(76, 175, 80, 0.3);
   color: #333333;
-  position: relative;
-  overflow: hidden;
+  /* position: relative; */
+  /* overflow: hidden; */
+  height: fit-content;
+  position: sticky;
+  top: 5.5rem;
+  z-index: 100;
 }
-
+@media (max-width:990px) {
+  .filters{
+    top: 8.5rem;
+  }
+}
 .filters::before {
   content: "";
   position: absolute;
@@ -137,6 +147,14 @@
   gap: 1rem;
 }
 
+.products-flex{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+
+}
+
 /* Load more button */
 .load-more-container {
   text-align: center;
@@ -190,10 +208,14 @@
   
   .catalog-content {
     flex-direction: column;
+    
   }
-  
+  .products-flex{
+    justify-content: center;
+  }
   .filters {
     flex: 0 0 auto;
+    position: static;
   }
 }
 

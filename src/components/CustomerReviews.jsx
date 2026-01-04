@@ -63,7 +63,7 @@ const CustomerReviews = () => {
         <h2 className="section-title">Отзывы покупателей</h2>
         <div className="reviews-grid">
           {reviews.map(review => (
-            <div key={review.id} className="review-card glass fade-in">
+            <div key={review.id} className="review-card">
               <div className="review-header">
                 <img src={review.avatar} alt={review.name} className="review-avatar" />
                 <div className="review-info">
