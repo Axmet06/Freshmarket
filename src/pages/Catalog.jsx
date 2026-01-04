@@ -127,7 +127,7 @@ const Catalog = () => {
               <label>Поиск:</label>
               <input
                 type="text"
-                placeholder="Название, бренд..."
+                placeholder="Название"
                 value={searchTerm}
                 onChange={(e) => {
                   setSearchTerm(e.target.value);

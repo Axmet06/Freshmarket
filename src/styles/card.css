@@ -47,9 +47,11 @@
   text-decoration: none;
   height: 100%;
   outline: none;
+  width: 100%;
+  max-width: 315px;
 }
 
-.product-card {
+.product-card-container {
   background: var(--card-bg);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-soft);
@@ -59,6 +61,9 @@
   height: var(--card-height);
   min-width: 0;
   border: 1px solid var(--border-color);
+  height: 490px;
+  width: 100%;
+  max-width: 350px;
 }
 
 .product-card:focus-within {

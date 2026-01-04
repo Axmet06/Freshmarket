@@ -12,7 +12,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <Link to={`/product/${product.id}`} className="product-card-link">
-      <div className="product-card">
+      <div className="product-card-container">
         <div className="product-image">
             <img src={product.image} alt={product.name} />
             {product.badge && <span className="product-badge">{product.badge}</span>}
